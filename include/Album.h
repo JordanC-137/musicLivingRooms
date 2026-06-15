@@ -2,12 +2,17 @@
 #define ALBUM_H
 
 #include <string>
+#include <string_view>
 
 class Album{
     int m_id{};
     std::string m_title{};
     std::string m_artist{};
 
+public:
+    Album(int id, std::string title, std::string artist);
+
+    std::string_view getTitle(){ return m_title; };
 };
 
 #endif

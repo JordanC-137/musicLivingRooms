@@ -4,6 +4,8 @@
 class LivingRoom{
     int m_id;
 
+public:
+    LivingRoom(int id);
 };
 
 #endif

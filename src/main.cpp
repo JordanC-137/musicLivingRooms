@@ -1,6 +1,9 @@
 #include <iostream>
+#include "Album.h"
 
 int main(){
-	std::cout << "Hello, World";
+	Album a1 {1, "Hunky Dory", "David Bowie"};
+	std::cout << a1.getTitle() << '\n';
+
 	return 0;
 }

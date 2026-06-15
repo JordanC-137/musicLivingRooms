@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.5)
 
 project(LivingRooms)
 
-add_executable(${CMAKE_PROJECT_NAME} PUBLIC main.cpp)
+add_executable(${CMAKE_PROJECT_NAME} src/main.cpp)
 
-add_library(LivingRoomLib PUBLIC src/Album.cpp src/LivingRoom.cpp)
+add_library(LivingRoomLib src/Album.cpp src/LivingRoom.cpp)
 
 target_include_directories(LivingRoomLib PUBLIC include/)
 
