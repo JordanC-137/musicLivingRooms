@@ -1,0 +1,19 @@
+# Confirm executable can be built on pushes to main branch
+name: Main
+run-name: build main branch
+on:
+  push:
+jobs:
+  Confirm build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v6
+      - name: set directory
+        run: mkdir build && cd build
+      - name: Configure
+        run: cmake ..
+      - name: Build
+        run: |
+          make
+      - run: echo "Status: ${{ job.status }}."
