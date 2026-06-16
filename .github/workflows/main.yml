@@ -3,6 +3,8 @@ name: Main
 run-name: build main branch
 on:
   push:
+    branches:
+      - main
 jobs:
   Build:
     runs-on: ubuntu-latest
