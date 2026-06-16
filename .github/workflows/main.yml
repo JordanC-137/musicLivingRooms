@@ -12,8 +12,7 @@ jobs:
       - name: set directory
         run: mkdir build && cd build
       - name: Configure
-        run: cmake ..
+        run: cmake -B build
       - name: Build
-        run: |
-          make
+        run: cmake --build build
       - run: echo "Status ${{ job.status }}."
