@@ -16,4 +16,4 @@ jobs:
       - name: Build
         run: |
           make
-      - run: echo "Status: ${{ job.status }}."
+      - run: echo "Status ${{ job.status }}."
