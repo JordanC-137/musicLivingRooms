@@ -4,7 +4,7 @@ run-name: build main branch
 on:
   push:
 jobs:
-  Confirm build:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
