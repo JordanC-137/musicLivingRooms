@@ -12,8 +12,7 @@ int LivingRoom::add_album(int id, std::string title, std::string artist)
     return 0;
 }
 
-template<size_t N>
-std::array<std::string_view, N> LivingRoom::basic_display()
+std::array<std::string_view, 4> LivingRoom::basic_display()
 {
     int count {0};
     std::array<std::string_view, 4> result{"", "", "", ""};

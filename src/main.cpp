@@ -9,9 +9,9 @@ int main(){
 	lr.add_album(2, "Pin-ups", "David Bowie");
 	lr.add_album(3, "Blackstar", "David Bowie");
 
-	lr.basic_display();
-	/*for(auto album: lr.getCollection()){
-		std::cout << album.getTitle() << '\n';
-	}*/
+	std::array<std::string_view, 4> xs {lr.basic_display()};
+	for(auto title: xs){
+		std::cout << title << '\n';
+	}
 	return 0;
 }
