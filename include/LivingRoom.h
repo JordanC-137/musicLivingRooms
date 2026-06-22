@@ -4,6 +4,8 @@
 #include <vector>
 #include "Album.h"
 #include <string_view>
+#include <array>
+#include <stddef.h>
 
 class LivingRoom{
     int m_id;
@@ -14,8 +16,10 @@ public:
 
     int add_album(int id, std::string title, std::string artist);
 
-    std::vector<std::string_view> basic_display();
+    template<size_t N>
+    std::array<std::string_view, N>basic_display();
 
+    std::vector<Album> getCollection(){ return m_collection; };
 };
 
 #endif

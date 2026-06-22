@@ -12,17 +12,19 @@ int LivingRoom::add_album(int id, std::string title, std::string artist)
     return 0;
 }
 
-std::vector<std::string_view> LivingRoom::basic_display()
+template<size_t N>
+std::array<std::string_view, N> LivingRoom::basic_display()
 {
     int count {0};
-    std::vector<std::string_view> result{};
+    std::array<std::string_view, 4> result{"", "", "", ""};
 
     std::vector<Album>::iterator it{m_collection.begin()};
     while(count < 4 & it != m_collection.end()){
         auto title = it->getTitle();
-        result.push_back(title);
-        ++it;
-        count++;
+        result[count] = title;
+        it++;
+        count++;    
     }
+
     return result;
 }
