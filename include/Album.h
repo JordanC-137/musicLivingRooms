@@ -19,11 +19,5 @@ public:
 
 };
 
-namespace std {
-    template<>
-    struct hash<Album>{
-        size_t operator()(const Album& album);
-    };
-}
 
 #endif

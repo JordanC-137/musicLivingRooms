@@ -16,6 +16,6 @@ int main(){
 	}
 	Album a1{0, "Hunky Dory", "David Bowie"};
 	//std::unordered_set<Album> Set{a1};
-	std::cout << std::hash(a1);
+	//std::cout << std::hash<Album>(a1);
 	return 0;
 }
