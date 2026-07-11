@@ -1,6 +1,4 @@
 #include <iostream>
-#include <unordered_set>
-#include "Album.h"
 #include "LivingRoom.h"
 
 int main(){
@@ -14,8 +12,5 @@ int main(){
 	for(auto title: xs){
 		std::cout << title << '\n';
 	}
-	Album a1{0, "Hunky Dory", "David Bowie"};
-	//std::unordered_set<Album> Set{a1};
-	//std::cout << std::hash<Album>(a1);
 	return 0;
 }
