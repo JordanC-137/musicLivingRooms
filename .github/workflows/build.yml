@@ -2,9 +2,7 @@
 name: Main
 run-name: build main branch
 on:
-  push:
-    branches:
-      - main
+  pull_request:
 jobs:
   Build:
     runs-on: ubuntu-latest

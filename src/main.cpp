@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Album.h"
 #include "LivingRoom.h"
 
 int main(){

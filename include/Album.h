@@ -13,7 +13,11 @@ public:
 
     Album(int id, std::string title, std::string artist);
 
-    std::string_view getTitle(){ return m_title; };
+    std::string_view getTitle() const { return m_title; };
+
+    bool operator==(const Album& otherAlbum) const;
+
 };
+
 
 #endif
