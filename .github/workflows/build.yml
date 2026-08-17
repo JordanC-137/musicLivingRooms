@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 2
-        run: git checkout HEAD^
+        run: git checkout HEAD
       - name: Download boost
         run: ./scripts/download_boost.sh
       - name: Preent directory
