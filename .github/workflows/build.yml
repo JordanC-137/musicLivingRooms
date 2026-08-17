@@ -9,8 +9,13 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+        run: git checkout HEAD^
       - name: Download boost
         run: ./scripts/download_boost.sh
+      - name: Preent directory
+        run: echo ${PWD}
       - name: Configure
         run: cmake -B build
       - name: Build
