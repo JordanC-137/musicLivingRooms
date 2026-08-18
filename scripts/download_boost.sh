@@ -8,5 +8,4 @@ sudo ./boost_1_92_0/bootstrap.sh --prefix=/usr/local
 echo "Present dir: ${PWD}"
 echo "List Dirs"
 ls -R .
-sudo ./boost_1_92_0/b2
-sudo ./boost_1_92_0/b2 install
+sudo ./b2 install
