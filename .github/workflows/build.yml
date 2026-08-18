@@ -11,8 +11,6 @@ jobs:
         uses: actions/checkout@v7
       - name: Download boost
         run: sudo bash ${GITHUB_WORKSPACE}/scripts/download_boost.sh
-      - name: Present directory
-        run: echo ${PWD}
       - name: Configure
         run: cmake -B build
       - name: Build
