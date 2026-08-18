@@ -10,7 +10,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v7
       - name: Download boost
-        run: ${GITHUB_WORKSPACE}/scripts/download_boost.sh
+        run: sudo bash ${GITHUB_WORKSPACE}/scripts/download_boost.sh
       - name: Present directory
         run: echo ${PWD}
       - name: Configure
