@@ -8,7 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
+      - name: update repo
+        run: sudo apt update
+      - name: Download boost
+        run: sudo apt install libboost-all-dev
+        # run: sudo bash ${GITHUB_WORKSPACE}/scripts/download_boost.sh
       - name: Configure
         run: cmake -B build
       - name: Build
