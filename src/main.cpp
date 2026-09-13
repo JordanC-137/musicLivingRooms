@@ -8,6 +8,8 @@
 #include <string_view>
 #include "LivingRoom.h"
 
+#include <cpr/cpr.h>
+
 namespace beast = boost::beast;
 namespace http = beast::http;
 namespace net = boost::asio;
@@ -52,7 +54,9 @@ int get_home(){
 }
 
 int main(){
-	get_home();
+	cpr::Response r = cpr::Get(cpr::Url{"localhost:8080/"});
+	std::cout << r.status_code << std::endl;
+	std::cout << r.text << std::endl;
 	LivingRoom lr {1};
 	lr.add_album(0, "Hunky Dory", "David Bowie");
 	lr.add_album(1, "Ziggy", "David Bowie");
