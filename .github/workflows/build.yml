@@ -13,7 +13,6 @@ jobs:
         run: sudo apt update
       - name: Download boost
         run: sudo apt install libboost-all-dev
-        # run: sudo bash ${GITHUB_WORKSPACE}/scripts/download_boost.sh
       - name: Configure
         run: cmake -B build
       - name: Build
