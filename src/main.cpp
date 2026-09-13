@@ -1,19 +1,8 @@
-#include <boost/beast/core.hpp>
-#include <boost/beast/http.hpp>
-#include <boost/beast/version.hpp>
-#include <boost/asio/connect.hpp>
-#include <boost/asio/ip/tcp.hpp>
-
 #include <iostream>
 #include <string_view>
 #include "LivingRoom.h"
 
 #include <cpr/cpr.h>
-
-namespace beast = boost::beast;
-namespace http = beast::http;
-namespace net = boost::asio;
-using tcp = net::ip::tcp;
 
 // Initialise connection
 int get_home(){
@@ -55,17 +44,7 @@ int get_home(){
 
 int main(){
 	cpr::Response r = cpr::Get(cpr::Url{"localhost:8080/"});
-	std::cout << r.status_code << std::endl;
+	std::cout << "SC: " << r.status_code << std::endl;
 	std::cout << r.text << std::endl;
-	LivingRoom lr {1};
-	lr.add_album(0, "Hunky Dory", "David Bowie");
-	lr.add_album(1, "Ziggy", "David Bowie");
-	lr.add_album(2, "Pin-ups", "David Bowie");
-	lr.add_album(3, "Blackstar", "David Bowie");
-
-	std::array<std::string_view, 4> xs {lr.basic_display()};
-	for(auto title: xs){
-		std::cout << title << '\n';
-	}
 	return 0;
 }
