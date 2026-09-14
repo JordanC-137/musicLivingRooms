@@ -1,4 +1,4 @@
-#Minimum version to allow FetchContent
+# Minimum version to allow FetchContent
 cmake_minimum_required(VERSION 3.14)
 
 project(LivingRooms)
