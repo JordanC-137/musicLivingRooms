@@ -7,7 +7,7 @@ FetchContent_MakeAvailable(cpr)
 target_link_libraries(LivingRoomLib PUBLIC cpr::cpr)
 
 # FetchContent_Declare(json GIT_REPOSITORY https://github.com/nlohmann/json.git
-                    GIT_TAG v3.11.3)
+#                    GIT_TAG v3.11.3)
 # FetchContent_MakeAvailable(json)
 
 target_include_directories(LivingRoomLib PUBLIC ../include/)
