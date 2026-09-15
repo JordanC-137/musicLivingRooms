@@ -11,6 +11,8 @@ jobs:
         uses: actions/checkout@v7
       - name: update repo
         run: sudo apt update
+      - name: install curl
+        run: sudo apt-get install curl
       - name: Configure
         run: cmake -S . -B build -DCPR_USE_SYSTEM_CURL=ON
       - name: Build
