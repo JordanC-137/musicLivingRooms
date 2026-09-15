@@ -1,67 +1,25 @@
-#include <boost/beast/core.hpp>
-#include <boost/beast/http.hpp>
-#include <boost/beast/version.hpp>
-#include <boost/asio/connect.hpp>
-#include <boost/asio/ip/tcp.hpp>
-
 #include <iostream>
 #include <string_view>
 #include "LivingRoom.h"
 
-namespace beast = boost::beast;
-namespace http = beast::http;
-namespace net = boost::asio;
-using tcp = net::ip::tcp;
+#include <cpr/cpr.h>
 
-// Initialise connection
-int get_home(){
-	try{
-		auto const host = "localhost";
-		auto const port = "8080";
-		auto const target = "/albums";
-		int version = 11;
+long postRequest(std::string_view sv){
+	cpr::Response r = cpr::Post(cpr::Url{sv},
+						cpr::Header{{"Content-Type", "application/json"}},
+						cpr::Body{"{\"title\":\"Ziggy Stardust\"}"});
+	std::cout << r.text << std::endl;
+	return r.status_code;
+}
 
-		net::io_context ioc;
-		tcp::resolver resolver(ioc);
-		beast::tcp_stream stream(ioc);
-
-		//Look up domain name
-		auto const results = resolver.resolve(host, port);
-		stream.connect(results);
-
-		http::request<http::string_body> req {http::verb::get, target, version};
-		req.set(http::field::host, host);
-		req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
-
-		http::write(stream, req);
-		beast::flat_buffer buffer;
-		http::response<http::dynamic_body> res;
-		http::read(stream, buffer, res);
-
-		std::cout << res << std::endl;
-
-		//Close socket
-		beast::error_code ec;
-		stream.socket().shutdown(tcp::socket::shutdown_both, ec);
-	}
-	catch(std::exception const& e){
-		std::cerr << "Error" << e.what() << std::endl;
-		return EXIT_FAILURE;
-	}
-	return EXIT_SUCCESS;
+long getRequest(std::string_view sv){
+	cpr::Response r = cpr::Get(cpr::Url(sv),
+	cpr::Header{{"accept", "application/json"}});
+	return r.status_code;
 }
 
 int main(){
-	get_home();
-	LivingRoom lr {1};
-	lr.add_album(0, "Hunky Dory", "David Bowie");
-	lr.add_album(1, "Ziggy", "David Bowie");
-	lr.add_album(2, "Pin-ups", "David Bowie");
-	lr.add_album(3, "Blackstar", "David Bowie");
-
-	std::array<std::string_view, 4> xs {lr.basic_display()};
-	for(auto title: xs){
-		std::cout << title << '\n';
-	}
+	int sc {postRequest("localhost:8080/albums")};
+	std::cout << "SC: " << sc << std::endl;
 	return 0;
 }
