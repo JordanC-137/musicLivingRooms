@@ -10,4 +10,11 @@ FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download
 FetchContent_MakeAvailable(json)
 target_link_libraries(LivingRoomLib PUBLIC nlohmann_json::nlohmann_json)
 
+FetchContent_Declare(FLTK
+                    GIT_REPOSITORY https://github.com/fltk/fltk
+                    GIT_TAG release-1.4.5
+                    GIT_SHALLOW TRUE)
+FetchContent_MakeAvailable(FLTK)
+target_link_libraries(LivingRoomLib PUBLIC FLTK)
+
 target_include_directories(LivingRoomLib PUBLIC ../include/)
