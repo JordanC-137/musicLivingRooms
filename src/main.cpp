@@ -3,6 +3,10 @@
 #include <unordered_map>
 #include "LivingRoom.h"
 
+#include <FL/Fl_Window.H>
+#include <FL/Fl_Widget.H>
+#include <FL/Fl_Button.H>
+
 #include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
 
@@ -25,8 +29,18 @@ long getRequest(std::string_view sv){
 	return r.status_code;
 }
 
+void printSomething(Fl_Widget *widget, void* data){
+	std::cout << "Button pressed!";
+}
+
 int main(){
-	int sc {postRequest("localhost:8080/albums")};
-	std::cout << "SC: " << sc << std::endl;
-	return 0;
+	//Define window
+	Fl_Window *window = new Fl_Window(340, 180);
+
+
+	Fl_Button *button = new Fl_Button(50, 50, 100, 100, "Press!");
+	button->callback(printSomething);
+	window->end();
+	window->show();
+	return Fl::run();
 }

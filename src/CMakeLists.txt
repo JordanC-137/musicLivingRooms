@@ -15,6 +15,7 @@ FetchContent_Declare(FLTK
                     GIT_TAG release-1.4.5
                     GIT_SHALLOW TRUE)
 FetchContent_MakeAvailable(FLTK)
-target_link_libraries(LivingRoomLib PUBLIC FLTK)
+
+target_link_libraries(LivingRoomLib PUBLIC fltk::fltk)
 
 target_include_directories(LivingRoomLib PUBLIC ../include/)
