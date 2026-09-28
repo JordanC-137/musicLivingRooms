@@ -30,7 +30,11 @@ long getRequest(std::string_view sv){
 }
 
 void printSomething(Fl_Widget *widget, void* data){
-	std::cout << "Button pressed!";
+	std::cerr << "Button pressed!";
+}
+
+void buttonGetRequest(Fl_Widget *widget, void* data){
+	getRequest("http://localhost:8080");
 }
 
 int main(){
@@ -40,6 +44,7 @@ int main(){
 
 	Fl_Button *button = new Fl_Button(50, 50, 100, 100, "Press!");
 	button->callback(printSomething);
+	//button->callback(buttonGetRequest);
 	window->end();
 	window->show();
 	return Fl::run();
